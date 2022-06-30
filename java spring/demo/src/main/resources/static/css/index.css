@@ -1,0 +1,100 @@
+:root{
+    --oscuro: black;
+    --primario: #888671;
+    --secundario: #bfc4c5;
+    --gris: rgb(117, 114, 114);
+    --blanco: #ffffff;
+}
+html{
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+span{
+    font-size: 1.2rem;
+}
+body{
+    font-size: 1.5rem;
+    font-family: sans-serif;
+}
+h1{
+    text-align: center;
+    font-size: 3.8rem;
+    
+}
+h2{
+    text-align: center;
+    font-size: 2.8rem;
+}
+h1,h2,h3{
+    text-align: center;
+}
+.contenedor{
+    max-width: 120rem;  /*120' rem es igual a 1200 pxs*/
+    margin: 0 auto;
+    
+}
+.nav-bg{
+    background-color: var(--secundario) ;
+}
+.navegacion-principal{
+    display: flex;
+    
+    flex-direction: column;
+    align-items: center;
+   
+}
+/*480 px celularers*/
+@media (min-width: 480px){
+  
+}
+
+/*768 px tabletas*/
+
+@media (min-width: 768px){
+    .navegacion-principal{
+        flex-direction: row;
+        justify-content: space-between;
+
+    }
+}
+
+/*1140 px portatiles*/
+@media (min-width: 1140px){
+  
+}
+
+.navegacion-principal a{
+    color: var(--blanco);
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 700;
+    padding: 1rem;
+}
+.navegacion-principal a:hover{
+    background-color: var(--primario);
+    color: var(--oscuro);
+}
+
+.hero{
+    background-image: url("https://lamenteesmaravillosa.com/wp-content/uploads/2019/03/discos-vinilos.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 40rem;
+    position: relative;
+}
+.contenido-hero{
+    position: absolute;
+    background-color: rgb(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.contenido-hero h2, .contenido-hero p{
+    color: var(--blanco);
+}

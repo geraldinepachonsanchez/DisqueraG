@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://wwww.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/form.css}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>ALBUM</title>
+
+</head>
+
+<body class="body">
+
+
+    <section class="hero">
+        <h6 style="font-size:5px ;">geral</h6>
+   
+        <div class="contenido">
+            <h1 th:text="${accion}" class="titulo"></h1>
+            <div class="borde">
+            
+            
+            <form th:action="@{/album/add}" method="post" th:object="${album}">
+                <label for="nombre">Nombre:</label><br>
+                <input type="text"  id="nombreAlbum" th:field="*{nombreAlbum}"><br><br>
+                <div class="form-text text-danger" th:if="${#fields.hasErrors('nombreAlbum')}"
+                th:errors="*{nombreAlbum}"></div>
+                <label for="nombre">Año Publicacion:</label><br>
+                <input type="date"  id="anioPublicacion" th:field="*{anioPublicacion}"><br><br>
+                <div class="form-text text-danger" th:if="${#fields.hasErrors('anioPublicacion')}"
+                th:errors="*{anioPublicacion}"></div>
+
+                <label for="nombre">Eliga el genero de su album:</label><br>
+                <select  th:field="*{genero}"><br><br>
+             <option  th:each="genero:${genero}" th:value="${genero.Id}" th:text="${genero.Nombre}"></option>
+                </select>
+
+                <label for="">Elija el artista de su album:</label>
+            <select class="input" th:field="*{artista}">
+                
+              <option th:each="artista:${artista}" th:value="${artista.idArtista}" th:text="${artista.nombreArtistsa}"></option>  
+            </select>
+
+                <label for="estadoAlbum">Estado:</label>
+                <input type="checkbox"  id="estadoAlbum"  th:field="*{estadoAlbum}">
+              
+                   <br><br>
+                <input type="submit" value="Registrar" class="btn btn-secondary " ><br>
+                
+            </form>
+        </div>
+
+           
+    </div>
+    </section>
+</body>
+
+</html>

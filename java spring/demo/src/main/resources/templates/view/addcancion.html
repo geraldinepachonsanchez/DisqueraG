@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://wwww.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/form.css}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Cancion</title>
+
+</head>
+
+<body class="body">
+
+
+    <section class="hero">
+        <h6 style="font-size:5px ;">geral</h6>
+   
+        <div class="contenido">
+            <h1 th:text="${accion}" class="titulo"></h1>
+            <div class="borde">
+            
+            
+                <form method="post" th:action="@{/cancion/addcancion}" th:object="${cancion}">
+                    <label for="nomnre">Nombre:</label><br>
+                    <input type="text" th:field="*{nombreCancion}" id="nombreCancion"><br><br>
+                    <div class="form-text text-danger" th:if="${#fields.hasErrors('nombreCancion')}" th:errors="*{nombreCancion}"></div>
+                    <label for="nomnre">Fecha de grabacion:</label><br>
+                    <input type="date" th:field="*{fechagrabacion}" id="fechagrabacion"><br><br>
+                    <div class="form-text text-danger" th:if="${#fields.hasErrors('fechagrabacion')}" th:errors="*{fechagrabacion}"></div>
+                    <label for="nomnre">Duracion:</label><br>
+                    <input type="text" th:field="*{duracionCancion}" id="duracionCancion"><br><br>
+                    <div class="form-text text-danger" th:if="${#fields.hasErrors('duracionCancion')}"
+                    th:errors="*{duracionCancion}"></div>
+
+                    <label for="nombre">Eliga el album de su cancion:</label><br>
+                <select  th:field="*{albumes}"><br><br>
+             <option  th:each="albumes:${albumes}" th:value="${albumes.idAlbum}" th:text="${albumes.nombreAlbum}"></option>
+                </select>
+    
+                    <label for="Estado">Estado :</label>
+                    <input type="checkbox" th:field="*{estadoCancion}" id="estadoCancion">
+                  <br>
+    <br>
+                    <input type="submit" value="Registrar" class="boton" >
+                </form>
+        </div>
+
+           
+    </div>
+    </section>
+</body>
+</html>
